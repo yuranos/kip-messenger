@@ -1,6 +1,5 @@
 package com.yuranos.architecture.aws.rest
 
-import com.yuranos.architecture.aws.relational.MessageRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -12,34 +11,12 @@ import org.springframework.web.bind.annotation.*
 class MessageController {
 
     @Autowired
-    MessageRepository messageRepository
+    MessageService messageService
 
-    @GetMapping("/message/{id}")
-    def getBooking(@PathVariable(required = true) int id) {
-        def booking = messageRepository.findById(id)
-        booking.orElse(Message())
-    }
-
-    @PostMapping("/message")
-    def postBooking(@RequestBody Message message) {
-        def createdMesage = messageRepository.save(message)
-        ResponseEntity.ok("The message with id $createdMesage.id has been created")
-    }
-
-    @DeleteMapping("/message/{id}")
-    def deleteBooking(@PathVariable(required = true) int id) {
-        messageRepository.deleteById(id)
-        ResponseEntity.ok("The message with id ${id} has been deleted")
-    }
-
-    @PutMapping("/message/{id}")
-    def putBooking(@PathVariable(required = true) int id, @RequestBody Message booking) {
-        int status = messageRepository.update(id, booking)
-        if(status) {
-            ResponseEntity.ok("The message with id $id has been updated")
-        } else {
-            ResponseEntity.notFound().build()
-        }
+    @PostMapping("/process")
+    def processMessage(@RequestBody Message message) {
+        def messageResponse = messageService.processMessage(message)
+        ResponseEntity.ok(messageResponse)
     }
 
 }

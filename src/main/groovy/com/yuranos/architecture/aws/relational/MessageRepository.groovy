@@ -12,10 +12,4 @@ import javax.transaction.Transactional
  * Created by yuranos on 9/21/17.
  */
 interface MessageRepository extends CrudRepository<Message, Long> {
-
-    @Transactional
-    @Modifying(clearAutomatically = true)
-    @Query('''update Booking b set b.passengerName = :#{#booking.passengerName}, b.destination = :#{#booking.destination},
-            b.departureDate = :#{#booking.departureDate} where b.id = :id''')
-    int update(@Param("id") id, @Param("booking") Message booking)
 }

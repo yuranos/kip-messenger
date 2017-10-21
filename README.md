@@ -1,2 +1,2 @@
-# spring-reactive-aws
-Will play with Spring Boot 2.0 with Project Reactor, Groovy, Gradle and AWS toolkit.
+# kip-messenger
+A service that receives messages from clients and gives back a response after the message is analyzed.
