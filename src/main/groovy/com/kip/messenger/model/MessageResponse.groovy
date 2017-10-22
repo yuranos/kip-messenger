@@ -1,4 +1,4 @@
-package com.yuranos.architecture.aws.rest
+package com.kip.messenger.model
 
 import groovy.transform.TupleConstructor
 

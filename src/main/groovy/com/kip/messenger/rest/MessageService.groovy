@@ -1,13 +1,18 @@
-package com.yuranos.architecture.aws.rest
+package com.kip.messenger.rest
 
+import com.kip.messenger.model.Message
+import com.kip.messenger.model.MessageResponse
 import groovy.transform.TupleConstructor
+import org.springframework.stereotype.Service
+
+import java.util.regex.Matcher
 
 /*
 //    http://mrhaki.blogspot.com/2009/09/groovy-goodness-matchers-for-regular.html
 //    https://stackoverflow.com/questions/9845133/match-variable-occurrences-in-a-text-using-regex
 //    http://www.groovyconsole.appspot.com/script/23002
  */
-
+@Service
 @TupleConstructor
 @Newify(MessageResponse)
 class MessageService {
@@ -41,7 +46,7 @@ class MessageService {
         MessageResponse portraitResponse = MessageResponse()
         portraitResponse.with {
             type = taskType.toString().toLowerCase()
-            output = "${match.group('verb')}s${match.group('object')}"
+            output = "${match.group('verb').capitalize()}s${match.group('object')}"
         }
         portraitResponse
     }

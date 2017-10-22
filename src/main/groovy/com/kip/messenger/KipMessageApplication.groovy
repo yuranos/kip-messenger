@@ -1,4 +1,4 @@
-package com.yuranos.architecture.aws
+package com.kip.messenger
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication

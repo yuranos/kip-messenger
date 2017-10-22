@@ -1,4 +1,4 @@
-package com.yuranos.architecture.aws.rest
+package com.kip.messenger.rest
 
 import groovy.json.JsonBuilder
 import org.springframework.web.bind.annotation.ExceptionHandler

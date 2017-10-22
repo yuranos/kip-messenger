@@ -1,7 +1,7 @@
-package com.yuranos.architecture.aws
+package com.kip.messenger
 
-import com.yuranos.architecture.aws.rest.Message
-import com.yuranos.architecture.aws.rest.MessageService
+import com.kip.messenger.model.Message
+import com.kip.messenger.rest.MessageService
 import groovy.json.JsonOutput
 import org.junit.Test
 

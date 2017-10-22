@@ -1,5 +1,6 @@
-package com.yuranos.architecture.aws.rest
+package com.kip.messenger.rest
 
+import com.kip.messenger.model.Message
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -13,7 +14,7 @@ class MessageController {
     @Autowired
     MessageService messageService
 
-    @PostMapping("/process")
+    @PostMapping("/processMessage")
     def processMessage(@RequestBody Message message) {
         def messageResponse = messageService.processMessage(message)
         ResponseEntity.ok(messageResponse)
